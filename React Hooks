@@ -1,0 +1,48 @@
+State: is essential part in react because it allow the component to be dynamic
+-- interactive and capable of responding to user input or change over time
+1)useStateHook: useState allow to add state to fun component
+
+SYNTAX:
+Const[state, setStaate]=useState(initial value)
+State: this is current state
+Set State: it is a fun to update the state
+Initial value: yhe value you want to set as the initial value
+
+
+
+import React ,{useState} from "react";
+// counter component
+const Counter = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h1>Counter</h1>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+    </div>
+  );
+}
+export default Counter; 
+
+import React,{useState} from 'react';
+
+const ThemeTOggler = () => {
+  const[theme, setTheme] =useState('light')
+
+  const toggleTheme=()=>{
+    setTheme((prevTheme)=>prevTheme === 'light' ? 'dark' : 'light')
+  }
+
+  return(
+    <div style={{background: theme === 'light' ? '#fff' : '#000', color: theme === 'light' ? '#000' : '#fff', textAlign: 'center',height: '100vh'}}>
+      <h1>The current theme is </h1>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </div>
+  )
+}
+export default ThemeTOggler;
+
+
+
+
