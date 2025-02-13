@@ -1,0 +1,71 @@
+
+// import React from "react";
+// function App(){
+//     const data="hello i am varsha"
+//     return(
+//         <div>
+//             <User1 data={data}/>
+//         </div>
+
+//     );
+// };
+// function User1({data}){
+//     return<User2 data={data}/>
+// }
+// function User2({data}){
+//     return<User3 data={data}/>
+// }
+// function User3({data}){
+//     return<User4 data={data}/>
+// }
+// function User4({data}){
+//     return <div>{data}</div>
+// }
+// export default App;
+
+
+import React, { createContext, useContext } from 'react';
+
+// Create a context to hold the data
+const DataContext = createContext();
+
+function App() {
+  // The data we want to share with user 4
+  const data = "Hello Iam Rishi";
+  return (
+    <DataContext.Provider value={data}>
+      <User1 />
+    </DataContext.Provider>
+  );
+}
+
+// User 1 component
+function User1() {
+  return (
+    <User2 />
+  );
+}
+
+// User 2 component
+function User2() {
+  return (
+    <User3 />
+  );
+}
+
+// User 3 component
+function User3() {
+  return (
+    <User4 />
+  );
+}
+
+// User 4 component
+function User4() {
+  const data = useContext(DataContext);
+  return (
+    <h1>{data}</h1>
+  );
+}
+
+export default App;
